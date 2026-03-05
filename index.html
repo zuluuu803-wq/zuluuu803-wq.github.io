@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projem</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:#f0f0f0;
+}
+
+.container{
+  position:relative;
+  width:100%;
+  max-width:1000px;
+  margin:0 auto;
+}
+
+.project-image{
+  width:100%;
+  display:block;
+}
+
+/* i butonları */
+.info{
+  position:absolute;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:black;
+  color:white;
+  border:none;
+  font-weight:bold;
+  cursor:pointer;
+  z-index:1000;
+}
+
+/* Buton konumları: görselin üstüne sabit */
+#btn1{
+  left:33%;
+  top:79%;
+}
+#btn2{
+  left:38%;
+  top:79%;
+}
+
+/* Popup */
+.popup{
+  display:none;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:white;
+  padding:20px;
+  width:80%;
+  max-width:400px;
+  border-radius:10px;
+  box-shadow:0 0 20px rgba(0,0,0,0.5);
+  z-index:2000;
+}
+
+.overlay{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  z-index:1500;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <img src="proje.jpg" alt="Projem" class="project-image">
+
+  <!-- i butonları -->
+  <button id="btn1" class="info" onclick="openPopup('p1')">i</button>
+  <button id="btn2" class="info" onclick="openPopup('p2')">i</button>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<!-- Popup 1 -->
+<div class="popup" id="p1">
+  <h3>Paket 1</h3>
+  <p>Buraya paket 1 açıklamasını yazabilirsiniz. İstediğiniz zaman değiştirebilirsiniz.</p>
+  <button onclick="closePopup()">Kapat</button>
+</div>
+
+<!-- Popup 2 -->
+<div class="popup" id="p2">
+  <h3>Paket 2</h3>
+  <p>Buraya paket 2 açıklamasını yazabilirsiniz. İstediğiniz zaman değiştirebilirsiniz.</p>
+  <button onclick="closePopup()">Kapat</button>
+</div>
+
+<script>
+function openPopup(id){
+  document.getElementById(id).style.display="block";
+  document.getElementById("overlay").style.display="block";
+}
+function closePopup(){
+  document.getElementById("p1").style.display="none";
+  document.getElementById("p2").style.display="none";
+  document.getElementById("overlay").style.display="none";
+}
+</script>
+
+</body>
+</html>
